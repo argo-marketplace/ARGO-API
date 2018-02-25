@@ -1,0 +1,13 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type":"object",
+    "properties":{
+        "input":{
+            "$ref":"https://apigateway.amazonaws.com/restapis/vkbteia5mf/models/Input"
+        },
+        "output":{
+            "$ref":"https://apigateway.amazonaws.com/restapis/vkbteia5mf/models/Output"
+        }
+    },
+    "title":"Result"
+}
