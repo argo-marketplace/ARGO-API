@@ -38,3 +38,18 @@ My approach was very simple, which is broken in three components:
 Now we have an endpoint with us to invoke our Lamba, make sure to add parameter to the endpoint
   - *for example: endpointURL?number1=10&number2=7*
   - *Now you just hit the endoint generated with input parameter added in browser to check*
+  
+ 4. Testing of the lambda and API Gateway it done.
+ 
+ Procedure for Creating **Usage Plan , API Key and Linking to API Gateway**
+ 
+ - We need to create a Usage Plan
+- Under Usage Plan we need all _API_ and _generated API keys_ 
+for example let says we have customer1 
+    - we create a usage plan **UsagePlanForCustomer1**
+    - we generate API Key for customer1, (we can generate multiple key if the customer1 has lot user using it).
+    - Last we need to add all API and Keys to the Usage Plan.
+    
+ Note : _After the changes we need to re-deploy the API in Gateway for any change to take place_. 
+ 
+ 
