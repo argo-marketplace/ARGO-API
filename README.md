@@ -1,3 +1,4 @@
+
 # ARGO-API
 A blueprint to rapidly APIfy and monetize public data.
 
@@ -15,31 +16,31 @@ Steps to execute the simple add function:
 5) For GET request: in the Method Request section specify two query strings as input 'a' and 'b' of type Number and in Method Response section add Result model with application/json
 6) For POST request: in the Method Request section specify in the Request body, the Input model with content type application/json
 
------------------------------------------------------------------------------------------------------------------------------------
-[Ankur]
+---
+### Deploying the API Overview
 
-My approach was very simple, which is broken in three components:
-1) Creation of a AWS Lamba for addition of two numbers.
-2) Creation of a API Gateway to invoke AWS Lamda.
-3) Allowing API Gateway to pass information to aws lamba or the two number as input.
+1) Create AWS Lamba to add two numbers.
+2) Create API Gateway to invoke AWS Lambda function.
+3) Allow the API Gateway to pass the two number as input to the Lambda.
+
+---
   
-1. Creation of AWS Lamba for Addition of two number:
-  - *This is a node.js application so while creating AWS lambda select a simple Node.js 4.3.3*
-  - *Copy the code written in **addNumber.js** (This contains a simple funtion for acception two input and adding them)*
+1. Create AWS Lamba to add two numbers:
+  - *A dirt simple  node.js application using Node.js 4.3.3*. The code is in [`addNumber.js`](https://github.com/argo-marketplace/ARGO-API/blob/master/addNumbers.js) 
   
-2. Creation of a API Gateway to invoke AWS Lamda.
-  - *While creating AWS Lambda - There is a **trigger section**  choose API Gateway*
-  - *This will expose us an endpoint with as Get Request that wil invoke our AWS Lambda*
+2. Create API Gateway to invoke AWS Lambda function:
+  - *When creating the Lambda function, ensure that the **trigger**  is set to API Gateway*
+  - *This will create an API endpoint that allows anyone to invoke our  Lambda function*
   
-3.  Allowing API Gateway to pass information to aws lamba or the two number as input.
-  - *Now after creating an API Gateway we need to go to **Integration Request** section , this section allow us to pass information to in the request in json format, add **input.js** in there*
-  - *here i am alreday passing input as integer rather than as string.*
+3.  Allow the API Gateway to pass the two number as input to the Lambda.:
+  - *After creating the API Gateway navigate to **Integration Request** , this section allow us to pass information to the lambda from an API invocation. To do this, add the code from `input.js`](https://github.com/argo-marketplace/ARGO-API/blob/master/input.js) here*
+  - *Note: We are capturing the input as integer as opposed to a string to reduce the code required to add the 2 inputs*
   
-Now we have an endpoint with us to invoke our Lamba, make sure to add parameter to the endpoint
-  - *for example: endpointURL?number1=10&number2=7*
-  - *Now you just hit the endoint generated with input parameter added in browser to check*
+We now have an endpoint to invoke our Lamba. make sure to add a parameter to the endpoint:
+  - *Example: endpointURL?number1=10&number2=7*
+  - *Now you just enter this URL with the parameters into a browser to get a result from the invoked lamda function*
   
- 4. Testing of the lambda and API Gateway it done.
+---
  
  Procedure for Creating **Usage Plan , API Key and Linking to API Gateway**
  
@@ -51,5 +52,3 @@ for example let says we have customer1
     - Last we need to add all API and Keys to the Usage Plan.
     
  Note : _After the changes we need to re-deploy the API in Gateway for any change to take place_. 
- 
- 
